@@ -28,7 +28,7 @@ version: "3.7"
 
 services:
   coordination:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
     healthcheck:
       test: curl -fs http://localhost:9200/_cat/health || exit 1
       interval: 30s
@@ -56,7 +56,7 @@ services:
           memory: 4G
 
   master1:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
     healthcheck:
       test: curl -fs http://localhost:9200/_cat/health || exit 1
       interval: 30s
@@ -83,7 +83,7 @@ services:
           memory: 4G
 
   data1:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
     healthcheck:
       test: curl -fs http://localhost:9200/_cat/health || exit 1
       interval: 30s
@@ -109,7 +109,7 @@ services:
         limits:
           memory: 6G
   data2:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
     healthcheck:
       test: curl -fs http://localhost:9200/_cat/health || exit 1
       interval: 30s
@@ -136,7 +136,7 @@ services:
           memory: 6G
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:8.4.3
+    image: docker.elastic.co/kibana/kibana:6.5.3
     environment:
       - "ELASTICSEARCH_URL=http://data1:9200"
     networks:
