@@ -54,6 +54,10 @@ services:
       resources:
         limits:
           memory: 4G
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 
   master1:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
@@ -81,6 +85,10 @@ services:
       resources:
         limits:
           memory: 4G
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 
   data1:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
@@ -108,6 +116,10 @@ services:
       resources:
         limits:
           memory: 6G
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
   data2:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.5.3
     healthcheck:
@@ -134,6 +146,10 @@ services:
       resources:
         limits:
           memory: 6G
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 
   kibana:
     image: docker.elastic.co/kibana/kibana:6.5.3
@@ -157,6 +173,10 @@ services:
         condition: on-failure
         delay: 10s
         max_attempts: 3
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 
   visualizer:
     image: dockersamples/visualizer
